@@ -3,7 +3,7 @@ def calculate_total_cost(items, tax=True, shipping=True):
     base_price = calculate_base_price(items)
     taxes = calculate_taxes(items) if tax else 0
     shipping_fees = calculate_shipping_fees(items) if shipping else 0
-    return base_price + taxes + shipping_fees
+    return round(base_price + taxes + shipping_fees, 2)
 
 def calculate_base_price(items):
     return round(sum(item["Price"] * item["Quantity"] for item in items), 2)
