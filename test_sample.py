@@ -20,3 +20,10 @@ def test_calculate_taxes_based_on_location():
     expected_tax = 7.28
     assert calculate_taxes(items) == expected_tax
     assert round(calculate_total_cost(items, shipping=False) - calculate_base_price(items), 2) == expected_tax
+
+def test_calculate_shipping_fees_based_on_location_and_weight():
+    items = [{"Name": "item1", "Price": 45, "Weight": 2.4, "Quantity": 1, "Location": "Italy"},
+             {"Name": "item2", "Price": 1, "Weight": 0.5, "Quantity": 20, "Location": "Spain"},
+             {"Name": "item3", "Price": 15, "Weight": 3.8, "Quantity": 2, "Location": "Mauritania"}]
+    expected_shipping_fees = 98.84
+    assert calculate_shipping_fees(items) == expected_shipping_fees
