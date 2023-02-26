@@ -27,3 +27,12 @@ def test_calculate_shipping_fees_based_on_location_and_weight():
              {"Name": "item3", "Price": 15, "Weight": 3.8, "Quantity": 2, "Location": "Mauritania"}]
     expected_shipping_fees = 98.84
     assert calculate_shipping_fees(items) == expected_shipping_fees
+
+def test_calculate_total_cost_with_taxes_and_shipping_fees():
+    items = [{"Name": "item1", "Price": 14, "Weight": 2.9, "Quantity": 2, "Location": "Sweden"},
+             {"Name": "item2", "Price": 9, "Weight": 0.2, "Quantity": 5, "Location": "Belgium"},
+             {"Name": "item3", "Price": 3, "Weight": 0.9, "Quantity": 2, "Location": "Ghana"},
+             {"Name": "item4", "Price": 4, "Weight": 0.5, "Quantity": 3, "Location": "South Africa"},
+             {"Name": "item5", "Price": 11, "Weight": 0.1, "Quantity": 1, "Location": "Vietnam"}]
+    expected_price = 165.04
+    assert calculate_total_cost(items) == expected_price
